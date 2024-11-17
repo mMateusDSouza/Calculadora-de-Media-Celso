@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrX2w023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrXYw023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrXew023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 600;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrXOw023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrXYw023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 800;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrYmw023e.woff2') format('woff2');
+}
+  
+@font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 900;
+    src: url('https://fonts.gstatic.com/s/rubik/v21/iJWKBXyIfDnIV7nBrYyw023e.woff2') format('woff2');
+}
+  
+body{
+    background: url(https://rubeusarquivos.apprbs.com.br/file/celsolisboa/CanalPersonalizado/399/mLr-2024-03-13-16-09-36.png);
+    font-family: 'Rubik', 'sans-serif';
+}
+#titulo{
+    text-align: center;
+    color: rgb(39, 202, 252);
+    text-shadow:
+    -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+#mat1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+#mat-box{
+    margin-bottom: 20px;
+}
+#materia{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+.campNota{
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+    text-align: center;
+}
+.container-notas{
+    display: flex;
+    justify-content: center;
+}
+.card-notas{
+    margin: 40px 60px;
+    width: 200px;
+    background-color: #4EA2BF;
+    border-radius: 30px;
+    border: 6px solid #047CA5;
+}
+.card-titulo{
+    text-align: center;
+    color: white; 
+    text-shadow:
+    -2px -2px 0 #0073b6, 2px -2px 0 #047CA5, -2px 2px 0 #047CA5, 2px 2px 0 #047CA5;;
+}
+
+.notas{
+    color: white;
+    padding-left: 20px;
+}

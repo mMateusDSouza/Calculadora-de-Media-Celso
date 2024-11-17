@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="titulo">Calculadora de Notas Celso Lisboa</h1>
+    <form id="mat1">
+        <div id="mat-box">
+            <label for="materia">Nome da matéria:</label>
+            <input type="text" name="materia" id="materia">
+        </div>
+        <div id="nota-box">  
+            <label for="f1">Fase 1:</label>
+            <input type="number" class="campNota" name="f1" id="f1" step="0.01">
+            <label for="f2">Fase 2:</label>
+            <input type="number" class="campNota" name="f2" id="f2" step="0.01">
+            <label for="f3">Fase 3:</label>
+            <input type="number" class="campNota" name="f3" id="f3" step="0.01">
+            <label for="f4">Fase 4:</label>
+            <input type="number" class="campNota" name="f4" id="f4" step="0.01">
+            <input type="submit" value="Calcular">  
+        </div>
+    </form>
+
+    <div class="container-notas" id="container-notas">
+       
+    </div>
+    <div id="mediaGeral">
+
+    </div>
+
+    <script>
+        formulario = document.getElementById("mat1");
+        formulario.addEventListener("submit", (event) =>{
+            event.preventDefault();
+
+            let materia = document.getElementById("materia").value;
+            let f1 = parseFloat(document.getElementById('f1').value);
+            let f2 = parseFloat(document.getElementById('f2').value);
+            let f3 = parseFloat(document.getElementById('f3').value);
+            let f4 = parseFloat(document.getElementById('f4').value);
+            let total = f1 + f2 + f3 + f4;
+
+            let notas = {
+                nome: materia,
+                fase1: f1, 
+                fase2: f2,
+                fase3: f3,
+                fase4: f4,
+                total: total
+            }
+           let nomeMateria = materia
+           if(localStorage.getItem(nomeMateria)){
+                console.log("Já existe!");
+           } else{
+                localStorage.setItem(nomeMateria, JSON.stringify(notas))
+                adicionarCardNotas(notas)
+           }
+           
+        } )
+     
+        function buscarCards(materia){
+            localStorage.getItem(materia)
+        }
+        
+        function adicionarCardNotas(materia){
+                let containerNotas = document.getElementById("container-notas");
+
+                let card = document.createElement("div");
+                card.className = "card-notas";
+                card.innerHTML = `
+                        <h2 class="card-titulo" >${materia.nome}</h2>
+                        <div class="notas">
+                            <p class="fas">Fase 1: ${materia.fase1}</p>
+                            <p class="fas">Fase 2: ${materia.fase2}</p>
+                            <p class="fas">Fase 3: ${materia.fase3}</p>
+                            <p class="fas">Fase 4: ${materia.fase4}</p>
+                        </div>
+                        <p class="totalMateria">Total: ${materia.total}</p>
+                        <button type="button" class="btn-apagar" data-nome="${materia.nome}">Apagar</button>
+                    `;
+
+                let botaoApagar = card.querySelector(`.btn-apagar`);
+                
+                botaoApagar.addEventListener("click", ()=>{
+                    localStorage.removeItem(materia.nome);
+                    card.remove()
+                    console.log("ok")
+                    window.location.reload();
+                })
+                containerNotas.appendChild(card);
+                let somaMedias = 0; 
+                for (let i = 0; i < localStorage.length; i++) {
+                        let nomed = localStorage.key(i);
+                        let item = JSON.parse(localStorage.getItem(nomed)); 
+                        somaMedias += item.total;
+                    }
+                    let mediaT = somaMedias / localStorage.length;
+                    
+                    document.getElementById("mediaGeral").innerHTML = `
+                        <div>${mediaT}</div>
+                    `
+                    console.log(mediaT)
+                
+        }
+        
+        window.onload = () =>{
+            for(let i = 0; i < localStorage.length; i++){
+                console.log(localStorage.length)
+                let index = localStorage.key(i);
+                let itens = JSON.parse(localStorage.getItem(index));
+                adicionarCardNotas(itens);
+           }
+        }
+    </script>
+</body>
+</html>
