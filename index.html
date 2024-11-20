@@ -12,29 +12,32 @@
 <body>
     <h1 id="titulo">Calculadora de Notas Celso Lisboa</h1>
     <form id="mat1">
-        <div id="mat-box">
-            <label for="materia">Nome da matéria:</label>
-            <input type="text" name="materia" id="materia">
-        </div>
-        <div id="nota-box">  
-            <label for="f1">Fase 1:</label>
-            <input type="number" class="campNota" name="f1" id="f1" step="0.01">
-            <label for="f2">Fase 2:</label>
-            <input type="number" class="campNota" name="f2" id="f2" step="0.01">
-            <label for="f3">Fase 3:</label>
-            <input type="number" class="campNota" name="f3" id="f3" step="0.01">
-            <label for="f4">Fase 4:</label>
-            <input type="number" class="campNota" name="f4" id="f4" step="0.01">
-            <input type="submit" value="Calcular">  
+        <div class="container-form">            
+            <div class="mat-box">
+                <input type="text" name="materia" id="materia" placeholder="Nome da matéria">
+            </div>
+            <div id="nota-box">  
+                <input type="number" class="campNota" name="f1" id="f1" step="0.01" placeholder="Fase 1">
+                <input type="number" class="campNota" name="f2" id="f2" step="0.01" placeholder="Fase 2">     
+                <input type="number" class="campNota" name="f3" id="f3" step="0.01" placeholder="Fase 3">
+                <input type="number" class="campNota" name="f4" id="f4" step="0.01" placeholder="Fase 4">                
+            </div>
+            <input type="submit" class="btn" value="Calcular">  
         </div>
     </form>
 
     <div class="container-notas" id="container-notas">
        
     </div>
-    <div id="mediaGeral">
-
+    <h3 id="mediaTitulo">Media Geral</h2>
+    <div id="mediaContainer">
+        
+        <div id="mediaGeral"></div>
     </div>
+
+    <footer>
+        <p>Desenvolvido por Mateus Duarte</p>
+    </footer>
 
     <script>
         formulario = document.getElementById("mat1");
@@ -77,14 +80,18 @@
                 card.className = "card-notas";
                 card.innerHTML = `
                         <h2 class="card-titulo" >${materia.nome}</h2>
-                        <div class="notas">
-                            <p class="fas">Fase 1: ${materia.fase1}</p>
-                            <p class="fas">Fase 2: ${materia.fase2}</p>
-                            <p class="fas">Fase 3: ${materia.fase3}</p>
-                            <p class="fas">Fase 4: ${materia.fase4}</p>
+                        <ul class="notas">
+                            <li class="fas">Fase 1: <span>${materia.fase1}</span></li>
+                            <li class="fas">Fase 2: <span>${materia.fase2}</span></li>
+                            <li class="fas">Fase 3: <span>${materia.fase3}</span></li>
+                            <li class="fas">Fase 4: <span>${materia.fase4}</span></li>
+                        </ul>
+                        <div id="totalMateria"> 
+                            <p class="totalMateria">Total: ${materia.total}</p>
                         </div>
-                        <p class="totalMateria">Total: ${materia.total}</p>
-                        <button type="button" class="btn-apagar" data-nome="${materia.nome}">Apagar</button>
+                        <div id="apagar-box">
+                            <button type="button" class="btn-apagar" data-nome="${materia.nome}">Apagar</button>
+                        </div>        
                     `;
 
                 let botaoApagar = card.querySelector(`.btn-apagar`);
@@ -103,7 +110,7 @@
                         somaMedias += item.total;
                     }
                     let mediaT = somaMedias / localStorage.length;
-                    
+                    mediaT = mediaT.toFixed(2);
                     document.getElementById("mediaGeral").innerHTML = `
                         <div>${mediaT}</div>
                     `

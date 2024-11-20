@@ -51,53 +51,143 @@ body{
     background: url(https://rubeusarquivos.apprbs.com.br/file/celsolisboa/CanalPersonalizado/399/mLr-2024-03-13-16-09-36.png);
     font-family: 'Rubik', 'sans-serif';
 }
-#titulo{
+#titulo, #mediaTitulo{
     text-align: center;
     color: rgb(39, 202, 252);
     text-shadow:
     -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+.container-form{
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.877);
 }
 #mat1{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 20vh;
 }
-#mat-box{
-    margin-bottom: 20px;
+.mat-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
 }
 #materia{
-    width: 300px;
-    height: 30px;
-    border-radius: 20px;
+    width: 350px;
+    height: 20px;
+    border-radius: 5px;
     text-align: center;
 }
+#nota-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+}
 .campNota{
-    width: 100px;
-    height: 40px;
-    border-radius: 30px;
+    margin: 10px 10px;
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
     text-align: center;
 }
 .container-notas{
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .card-notas{
     margin: 40px 60px;
-    width: 200px;
+    min-width: 200px;
     background-color: #4EA2BF;
-    border-radius: 30px;
+    border-radius: 10px;
     border: 6px solid #047CA5;
 }
 .card-titulo{
+    min-height: 60px;
+    min-width: none;
     text-align: center;
-    color: white; 
+    color: rgb(255, 255, 255); 
     text-shadow:
     -2px -2px 0 #0073b6, 2px -2px 0 #047CA5, -2px 2px 0 #047CA5, 2px 2px 0 #047CA5;;
 }
 
 .notas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     color: white;
     padding-left: 20px;
+    width: 100%; 
+}
+
+.fas{
+    margin: 20px;
+    list-style: none;
+}
+
+.fas span{
+    background-color: white;
+    padding: 0px 15px;
+    border-radius: 10px;
+    color: black;
+}
+
+#totalMateria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.totalMateria{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 40px;
+    border: #0073b6 solid 3px;
+    border-radius: 40px;
+    background-color: white;
+}
+
+#apagar-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.btn-apagar{
+    background-color: rgb(247, 99, 99);
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.btn-apagar:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+#mediaContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#mediaGeral{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    height: 60px;
+    background-color: white;
+    width: 200px;
+    border: #0073b6 solid 3px;
+    border-radius: 40px;
+}
+
+footer{
+    margin-top: 100px;
+    text-align: center;
+    color: gray;
 }
