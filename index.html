@@ -14,13 +14,13 @@
     <form id="mat1">
         <div class="container-form">            
             <div class="mat-box">
-                <input type="text" name="materia" id="materia" placeholder="Nome da matéria">
+                <input type="text" name="materia" id="materia" placeholder="Nome da matéria" required>
             </div>
             <div id="nota-box">  
-                <input type="number" class="campNota" name="f1" id="f1" step="0.01" placeholder="Fase 1">
-                <input type="number" class="campNota" name="f2" id="f2" step="0.01" placeholder="Fase 2">     
-                <input type="number" class="campNota" name="f3" id="f3" step="0.01" placeholder="Fase 3">
-                <input type="number" class="campNota" name="f4" id="f4" step="0.01" placeholder="Fase 4">                
+                <input type="number" class="campNota" name="f1" id="f1" step="0.01" placeholder="Fase 1" required>
+                <input type="number" class="campNota" name="f2" id="f2" step="0.01" placeholder="Fase 2" required>     
+                <input type="number" class="campNota" name="f3" id="f3" step="0.01" placeholder="Fase 3" required>
+                <input type="number" class="campNota" name="f4" id="f4" step="0.01" placeholder="Fase 4" required>                
             </div>
             <input type="submit" class="btn" value="Calcular">  
         </div>
@@ -61,10 +61,11 @@
             }
            let nomeMateria = materia
            if(localStorage.getItem(nomeMateria)){
-                console.log("Já existe!");
-           } else{
-                localStorage.setItem(nomeMateria, JSON.stringify(notas))
-                adicionarCardNotas(notas)
+                alert("Esta matéria já existe na sua lista!");
+           }else{
+                localStorage.setItem(nomeMateria, JSON.stringify(notas));
+                adicionarCardNotas(notas);
+                limparCampos();
            }
            
         } )
@@ -117,7 +118,14 @@
                     console.log(mediaT)
                 
         }
-        
+        function limparCampos() {
+            document.getElementById("materia").value = "";
+            document.getElementById("f1").value = "";
+            document.getElementById("f2").value = "";
+            document.getElementById("f3").value = "";
+            document.getElementById("f4").value = "";
+        }
+    
         window.onload = () =>{
             for(let i = 0; i < localStorage.length; i++){
                 console.log(localStorage.length)

@@ -93,6 +93,15 @@ body{
     border-radius: 5px;
     text-align: center;
 }
+.btn{
+    margin-top: 20px;
+    height: 40px;
+    font-weight: 700;
+    color: white;
+    font-size: 18px;
+    background-color: #0073b6;
+    border: none;
+}
 .container-notas{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -191,3 +200,113 @@ footer{
     text-align: center;
     color: gray;
 }
+
+/* Media Queries */
+
+
+@media (max-width: 480px) {
+    body{
+        width: 100%;
+    }
+    .container-form{
+        width: 350px;
+    }
+    #nota-box{
+        width: 100%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+    }
+    .campNota, #materia{
+        width: 70%;
+        height: 30px;
+        border-radius: 30px;
+        border: rgb(209, 227, 243) solid 2px;
+    }
+    .campNota::placeholder, #materia::placeholder{
+        color: #4ea3bfc5;
+    }
+    #materia{
+        width: 90%;
+    }
+    .container-notas{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+    .btn{
+        margin-top: 20px;
+        height: 40px;
+        font-weight: 700;
+        color: white;
+        font-size: 18px;
+        background-color: #0073b6;
+        border: none;
+    }
+    .card-notas{
+        width: 90%;
+    }
+}
+  
+@media (max-width: 768px) {
+    body{
+        width: 100%;
+    }
+    .container-form{
+        width: 350px;
+    }
+    #nota-box{
+        width: 100%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+    }
+    .campNota, #materia{
+        width: 70%;
+        height: 30px;
+        border-radius: 30px;
+        border: rgb(209, 227, 243) solid 2px;
+    }
+    .campNota::placeholder, #materia::placeholder{
+        color: #4ea3bfc5;
+    }
+    #materia{
+        width: 90%;
+    }
+    .container-notas{
+        width: 40%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+    .btn{
+        margin-top: 20px;
+        height: 40px;
+        font-weight: 700;
+        color: white;
+        font-size: 18px;
+        background-color: #0073b6;
+        border: none;
+    }
+    .card-notas{
+        width: 90%;
+    }
+}
+  
+@media (max-width: 1024px) {
+    .container-notas{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+    .card-notas{
+        width: 400px;
+    }
+}
+  
+@media (max-width: 1200px) {
+    
+}
+  
