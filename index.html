@@ -26,7 +26,6 @@
             <input type="submit" class="btn" value="Calcular">  
         </div>
     </form>
-
     <div class="container-notas" id="container-notas">
        
     </div>
@@ -106,12 +105,16 @@
                 })
                 containerNotas.appendChild(card);
                 let somaMedias = 0; 
+                let materias = 0;
                 for (let i = 0; i < localStorage.length; i++) {
-                        let nomed = localStorage.key(i);
-                        let item = JSON.parse(localStorage.getItem(nomed)); 
-                        somaMedias += item.total;
-                    }
-                    let mediaT = somaMedias / localStorage.length;
+                        let key = localStorage.key(i);
+                        let item = JSON.parse(localStorage.getItem(key)); 
+                        if(localStorage.getItem(key).includes('nome')){
+                            somaMedias += item.total;
+                            materias += 1;
+                        }     
+                }
+                    let mediaT = somaMedias / materias;
                     mediaT = mediaT.toFixed(2);
                     document.getElementById("mediaGeral").innerHTML = `
                         <div>${mediaT}</div>
@@ -130,10 +133,13 @@
         window.onload = () =>{
             for(let i = 0; i < localStorage.length; i++){
                 console.log(localStorage.length)
-                let index = localStorage.key(i);
-                let itens = JSON.parse(localStorage.getItem(index));
-                adicionarCardNotas(itens);
-           }
+                let key = localStorage.key(i);
+                let itens = JSON.parse(localStorage.getItem(key));
+                
+                if(localStorage.getItem(key).includes('nome')){
+                    adicionarCardNotas(itens);
+                }
+            }
         }
     </script>
 </body>
