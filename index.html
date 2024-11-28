@@ -130,17 +130,22 @@
             document.getElementById("f4").value = "";
         }
     
-        window.onload = () =>{
-            for(let i = 0; i < localStorage.length; i++){
-                console.log(localStorage.length)
+        window.onload = () => {
+            for (let i = 0; i < localStorage.length; i++) {
                 let key = localStorage.key(i);
-                let itens = JSON.parse(localStorage.getItem(key));
-                
-                if(localStorage.getItem(key).includes('nome')){
-                    adicionarCardNotas(itens);
+                let item = localStorage.getItem(key);
+
+                try {
+                    let itens = JSON.parse(item); 
+                    if (itens && itens.nome) { 
+                        adicionarCardNotas(itens);
+                    }
+                } catch (e) {
+                    console.warn(`Item inválido no localStorage: ${key}`, e);
                 }
             }
-        }
+        };
+
     </script>
 </body>
 </html>
